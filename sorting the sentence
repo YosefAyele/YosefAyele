@@ -1,0 +1,12 @@
+ def sortSentence(self, s: str) -> str:
+        sentlist=s.split(" ")
+        plaintx=[]
+            
+        for i in range(len(sentlist)-1,-1,-1):
+             for j in range(i):
+                    if int((sentlist[j])[-1])>int((sentlist[j+1])[-1]):
+                        sentlist[j],sentlist[j+1]=sentlist[j+1],sentlist[j]
+        for item in sentlist:
+            plaintx.append(item[:-1])
+        return " ".join(plaintx)
+                        

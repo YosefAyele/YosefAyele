@@ -1,0 +1,14 @@
+def targetIndices(self, nums: List[int], target: int) -> List[int]:
+        sortel=nums
+        output=[]
+        for i in range(len(sortel)-1):
+            minn=i
+            for j in range(i+1,len(sortel)):
+                if sortel[j]<sortel[minn]:
+                    minn=j
+            if minn!=i:
+                sortel[minn],sortel[i]=sortel[i],sortel[minn]
+        for i in range(len(sortel)):
+            if sortel[i]==target:
+                output.append(i)
+        return output

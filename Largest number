@@ -1,0 +1,18 @@
+ def largestNumber(self, nums: List[int]) -> str:
+        nums.sort(reverse=True,key=lambda x:str(x))
+        stn=[]
+        for i in nums:
+            stn.append(str(i))
+        l=len(stn)
+        print(stn)
+        j=0
+        while j<l-1:
+            for i in range(0,l-1):
+                if int(stn[i+1]+stn[i])>int(stn[i]+stn[i+1]):
+                     stn[i],stn[i+1]=stn[i+1],stn[i]
+            j+=1
+        ans=''
+        for i in stn:
+            ans+=i
+        return str(int(ans))
+                

@@ -1,0 +1,20 @@
+def rearrangeArray(self, nums: List[int]) -> List[int]:
+        nums.sort()
+        m=len(nums)
+        output=[]
+        n=nums[::-1]
+        if m%2==0:
+            for i in range((m//2)):
+                if nums[i]!=n[i]:
+                    output.append(n[i])
+                    output.append(nums[i])
+                if len(output)==m:
+                    return output
+        else:
+            for i in range((m//2)+1):
+                if nums[i]!=n[i]:
+                    output.append(n[i])
+                    output.append(nums[i])
+            else:
+                output.append(nums[i])
+                return output

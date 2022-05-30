@@ -1,0 +1,27 @@
+ def findOriginalArray(self, changed: List[int]) -> List[int]:
+        if len(changed)%2!=0:
+            return []
+        changed.sort()
+        d=dict()
+        for i in changed:
+            if i not in d:
+                d[i]=1
+            else:
+                d[i]+=1
+        test=[]
+        for i in changed:
+            if i!=0:
+                if i*2 in d and d[i]>0 and d[i*2]>0:
+                    test.append(i)
+                    d[i]-=1
+                    d[i*2]-=1
+            else:
+                if d[i]>0:
+                    test.append(i)
+                    d[i]-=2
+        for i in d:
+            if d[i]!=0:
+                return []
+        return test
+                
+                

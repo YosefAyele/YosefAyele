@@ -1,0 +1,10 @@
+m,n,a=[int(x) for x in input().split()]
+if (m//a)*a<m:
+    b=(m//a)+1
+else:
+    b=m//a
+if (n//a)*a < n:
+    c=(n//a)+1
+else:
+    c=n//a
+print(b*c)

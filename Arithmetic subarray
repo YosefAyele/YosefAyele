@@ -1,0 +1,13 @@
+  def checkArithmeticSubarrays(self, nums: List[int], l: List[int], r: List[int]) -> List[bool]:
+        def checkbool(subarr):
+            subarr.sort()
+            for i in range(len(subarr)-1):
+                if subarr[i+1]-subarr[i]!=subarr[1]-subarr[0]:
+                    return False
+            return True
+        output=[]
+        for i in range(len(l)):
+            sub=nums[l[i]:r[i]+1]
+            output.append(checkbool(sub))
+        return output
+            

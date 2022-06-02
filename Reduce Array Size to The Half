@@ -1,0 +1,20 @@
+ def minSetSize(self, arr: List[int]) -> int:
+        d=dict()
+        for i in arr:
+            if i not in d:
+                d[i]=1
+            else:
+                d[i]+=1
+        dd=d.items()
+        ddd=[]
+        for l in dd:
+            ddd.append(l)
+        ddd.sort(reverse=True, key=lambda x:x[1])
+        output=0
+        summ=0
+        for j in ddd:
+            summ+=j[-1]
+            output+=1
+            if summ>=len(arr)//2:
+                return output
+                

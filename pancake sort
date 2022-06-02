@@ -1,0 +1,16 @@
+ def pancakeSort(self, arr: List[int]) -> List[int]:
+        output=[]
+        m=len(arr)
+        f=len(arr)-1
+        for j in arr:
+            for i in range(len(arr)):
+                if arr[i]==m:
+                    arr[:i+1]=arr[i::-1]
+                    output.append(len(arr[:i+1]))
+                    arr[:f+1]=arr[f::-1]
+                    output.append(len(arr[:f+1]))
+                    m-=1
+                    f-=1
+        return output
+                
+        

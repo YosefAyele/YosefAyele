@@ -1,0 +1,16 @@
+ def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        d=dict()
+        for n in nums:
+            if n not in d:
+                d[n]=1
+            else:
+                d[n]+=1
+        dt=d.items()
+        dtl=[]
+        for m in dt:
+            dtl.append(m)
+        dtl.sort(reverse=True, key=lambda x: x[1])
+        output=[]
+        for i in dtl[:k]:
+            output.append(i[0])
+        return output

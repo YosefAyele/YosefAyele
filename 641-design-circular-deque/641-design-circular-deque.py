@@ -1,102 +1,72 @@
 class MyCircularDeque:
 
-    def __init__(self, k):
-        """
-        Initialize your data structure here. Set the size of the deque to be k.
-        :type k: int
-        """
-        self._size = 0
-        self._front, self._rear = 0, 0
-        self._capacity = k
-        self._data = [-1] * k
-
-    def insertFront(self, value):
-        """
-        Adds an item at the front of Deque. Return true if the operation is successful.
-        :type value: int
-        :rtype: bool
-        """
+    def __init__(self, k: int):
+        self.k=k
+        self.path=[-1]*k
+        self.f,self.r=0,0
+        self.size=0
+    def insertFront(self, value: int) -> bool:
         if self.isFull():
             return False
         if self.isEmpty():
-            self._data[self._front] = value
+            self.path[self.f]=value
         else:
-            self._front = (self._front - 1) % self._capacity
-            self._data[self._front] = value
-        self._size += 1
+            self.f=(self.f-1)%self.k
+            self.path[self.f]=value
+        self.size+=1
         return True
+        
 
-    def insertLast(self, value):
-        """
-        Adds an item at the rear of Deque. Return true if the operation is successful.
-        :type value: int
-        :rtype: bool
-        """
+    def insertLast(self, value: int) -> bool:
         if self.isFull():
             return False
         if self.isEmpty():
-            self._data[self._rear] = value
+            self.path[self.r]=value
         else:
-            self._rear = (self._rear + 1) % self._capacity
-            self._data[self._rear] = value
-        self._size += 1
+            self.r=(self.r+1)%self.k
+            self.path[self.r]=value
+        self.size+=1
         return True
 
-    def deleteFront(self):
-        """
-        Deletes an item from the front of Deque. Return true if the operation is successful.
-        :rtype: bool
-        """
+    def deleteFront(self) -> bool:
         if self.isEmpty():
             return False
-        self._data[self._front] = -1
-        self._front = (self._front + 1) % self._capacity
-        self._size -= 1
+        self.path[self.f]=-1
+        self.f=(self.f+1)%self.k
+        self.size-=1
         if self.isEmpty():
-            self._rear = self._front
+             self.r=self.f
         return True
+            
+        
 
-    def deleteLast(self):
-        """
-        Deletes an item from the rear of Deque. Return true if the operation is successful.
-        :rtype: bool
-        """
+    def deleteLast(self) -> bool:
         if self.isEmpty():
             return False
-        self._data[self._rear] = -1
-        self._rear = (self._rear - 1) % self._capacity
-        self._size -= 1
+        self.path[self.r]=-1
+        self.r=(self.r-1)%self.k
+        self.size-=1
         if self.isEmpty():
-            self._front = self._rear
+            self.f=self.r
         return True
+        
 
-    def getFront(self):
-        """
-        Get the front item from the deque.
-        :rtype: int
-        """
-        return self._data[self._front]
+    def getFront(self) -> int:
+        return self.path[self.f]
+        
 
-    def getRear(self):
-        """
-        Get the last item from the deque.
-        :rtype: int
-        """
-        return self._data[self._rear]
+    def getRear(self) -> int:
+        return self.path[self.r]
+        
 
-    def isEmpty(self):
-        """
-        Checks whether the circular deque is empty or not.
-        :rtype: bool
-        """
-        return self._size == 0
+    def isEmpty(self) -> bool:
+        return self.size==0
+        
 
-    def isFull(self):
-        """
-        Checks whether the circular deque is full or not.
-        :rtype: bool
-        """
-        return self._size == self._capacity
+    def isFull(self) -> bool:
+        return self.size==self.k
+        
+
 
 # Your MyCircularDeque object will be instantiated and called as such:
 # obj = MyCircularDeque(k)

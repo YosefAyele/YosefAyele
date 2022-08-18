@@ -21,7 +21,7 @@ class Solution:
       # '''....Sliding Window Soluiton...'''
         nums.sort()
         l=r=0
-        wnlth=0
+        maxfreq=0
         Total=0
 
         while r<len(nums):
@@ -31,10 +31,10 @@ class Solution:
             while nums[r]*(r-l+1)>Total+k:
                 Total-=nums[l]
                 l+=1
-            wnlth=max(r-l+1,wnlth)
+            maxfreq=max(r-l+1,maxfreq)
                 
             r+=1
-        return wnlth
+        return maxfreq
 
 
             

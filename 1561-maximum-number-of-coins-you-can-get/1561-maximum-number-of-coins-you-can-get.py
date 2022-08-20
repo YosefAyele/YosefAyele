@@ -1,0 +1,18 @@
+class Solution:
+    def maxCoins(self, piles: List[int]) -> int:
+        piles.sort()
+        # tripnum=(len(piles)//3)
+        # triplet=[[0,0,0]]*tripnum
+        output=0
+        # for i in range(tripnum):
+        #     j=triplet[i]
+        #     j[1]=piles[2*i+tripnum]
+        #     output+=j[1]
+        # return output
+        for i in range(len(piles)//3,len(piles),2):
+            output+=piles[i]
+        return output
+                        
+            
+                
+                

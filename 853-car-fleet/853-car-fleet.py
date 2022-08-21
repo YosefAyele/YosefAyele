@@ -12,7 +12,7 @@ class Solution:
             currtime=(tar-pair[0])/pair[1]
             # print(monstack)
             
-            while monstack and currtime<=monstack[-1]:
+            if monstack and currtime<=monstack[-1]:
                 currtime=monstack.pop()
             
             monstack.append(currtime)

@@ -12,8 +12,7 @@ class Solution:
                 h=height[i]
                 a=h*(j-i)
                 i+=1
-            if a>maxm:
-                maxm=a
+            maxm=max(maxm,a)
         return maxm
             
             

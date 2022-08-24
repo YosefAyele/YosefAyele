@@ -1,0 +1,11 @@
+class Solution:
+    def evalRPN(self, tokens: List[str]) -> int:
+        stack=[]
+        operators={"+": lambda y,x:x+y, "*": lambda y,x:x*y, "-": lambda y,x:x-y ,"/": lambda            y,x:int(x/y)}
+        for i in tokens:
+            if i in operators:
+                 stack.append(operators[i](stack.pop(),stack.pop()))
+            else:
+                stack.append(int(i))
+        return stack[-1]
+        

@@ -1,5 +1,5 @@
 class Solution:
-    def decodeString(self, s: str) -> str:
+    '''def decodeString(self, s: str) -> str:
         stack=[]
         size=len(s)
         output=""
@@ -20,7 +20,6 @@ class Solution:
                 stack.append(s[i])
         for val in stack:
             output+=val
-        return output
-    '''
-   2[4[kl]]
-    '''
+        return output'''
+    
+  

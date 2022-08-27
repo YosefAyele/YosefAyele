@@ -22,4 +22,27 @@ class Solution:
             output+=val
         return output'''
     
+        global i
+        i=0
+        def decoder(s,num=1):
+            global i
+            curr=""
+            while i<len(s):
+                
+                if s[i].isdigit():
+                    currnum=""
+                    while s[i].isdigit():
+                        currnum+=s[i]
+                        i+=1
+                    i+=1
+                    curr+=decoder(s,num=int(currnum))
+                elif s[i].isalpha():
+                    curr+=s[i]
+                    i+=1
+                else:
+                    i+=1
+                    return num*curr
+            return num*curr
+            
+        return decoder(s)
   

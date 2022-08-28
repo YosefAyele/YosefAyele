@@ -8,7 +8,7 @@ class Solution:
         
         h1,h2=l1,l2
         rem=0
-        res=ListNode(0)
+        res=ListNode(None)
         restail=res
         while h1 or h2 or rem:
             val1=h1.val if h1 else 0
@@ -21,4 +21,4 @@ class Solution:
             h1=h1.next if h1 else None
             h2=h2.next if h2 else None
         return res.next
-        
+    

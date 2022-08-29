@@ -13,13 +13,13 @@ class Solution:
             
             if h1.val<=h2.val:
                 restail.next=h1
-                restail=h1
                 h1=h1.next
     
             else:
                 restail.next=h2
-                restail=h2
                 h2=h2.next
+                
+            restail=restail.next
                 
         if h1 or h2:
             restail.next=h1 if h1 else h2

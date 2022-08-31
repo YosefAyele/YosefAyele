@@ -13,6 +13,5 @@ class Solution:
         temp=node.next
         
         node.val=temp.val
-        node.next=temp.next
-        # temp.next=None
+        node.next=node.next.next
     

@@ -7,23 +7,20 @@ class Solution:
     def nextLargerNodes(self, head: Optional[ListNode]) -> List[int]:
         
         res=[]
-        size=0
+        output=[]
+        i=0
         
         temp=head
         while temp:
-            size+=1
-            temp=temp.next
+            output.append(0)
+            currval=temp.val
             
-        output=[0]*size
-        curr=head
-        
-        for i in range(size):
-            while res and curr.val> res[-1][1]:
+            while res and currval> res[-1][1]:
                 popped=res.pop()
-                output[popped[0]]=curr.val
+                output[popped[0]]=currval
                 
-            res.append((i,curr.val))
-            curr=curr.next
-            
+            res.append((i,currval))
+            temp=temp.next
+            i+=1
         return output
         

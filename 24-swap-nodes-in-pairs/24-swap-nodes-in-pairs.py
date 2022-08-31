@@ -23,13 +23,24 @@ class Solution:
 #             curr=curr.next
             
 #         return dummy.next
-        if head and head.next:
-            temp=head.next
-            head.next=self.swapPairs(temp.next)
-            temp.next=head
-            return temp
+        def swap(head):
+            if not head or not head.next:
+                return head
+            p1=head
+            p2=head.next
+            p3=p2.next
             
-        return head
+            p1.next=p3
+            p2.next=p1
+            
+            if p3:
+                p1.next=swap(p3)
+            
+            return p2
+        
+            
+            
+        return  swap(head)
        
 #         if head and head.next:
 #             tmp = head.next

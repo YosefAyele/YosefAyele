@@ -12,11 +12,12 @@ class Solution:
             if head.val== head.next.val:
                 while head and head.next and head.val==head.next.val:
                     head=head.next
-                head=head.next
-                temp.next=head
+            
+                temp.next=head.next
             else:
                 temp=temp.next
-                head=head.next
+            
+            head=head.next
                     
         
         

@@ -10,10 +10,11 @@ class Solution:
             if people[l]+people[r]<=limit:
                 r-=1
                 l+=1
-                res+=1
+
             else:
                 r-=1
-                res+=1
+            
+            res+=1
         return res
                 
         

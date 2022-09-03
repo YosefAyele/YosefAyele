@@ -16,4 +16,4 @@ class Solution:
             r+=1
                 
         
-        return res%(len(nums)+1)
+        return res if res<len(nums)+1 else 0

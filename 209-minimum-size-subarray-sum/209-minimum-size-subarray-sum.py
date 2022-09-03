@@ -1,11 +1,9 @@
 class Solution:
     def minSubArrayLen(self, target: int, nums: List[int]) -> int:
-        
-        if target>sum(nums): return 0
-        
+         
         currsum=0
         r=l=0
-        res=len(nums)
+        res=len(nums)+1
         while r<len(nums):
             
             currsum+=nums[r]
@@ -18,4 +16,4 @@ class Solution:
             r+=1
                 
         
-        return res
+        return res%(len(nums)+1)

@@ -18,8 +18,18 @@ class Solution:
             helper(root.left,output)
             helper(root.right,output)
             
-        helper(root,output)
+        # helper(root,output)
+
+        stack=[root]
         
+        while stack:
+            node=stack.pop()
+            
+            if node:
+                output.append(node.val)
+                stack.append(node.right)
+                stack.append(node.left)
+                
         return output
             
             

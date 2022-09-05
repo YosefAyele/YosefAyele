@@ -20,15 +20,16 @@ class Solution:
             
         # helper(root,output)
 
-        stack=[root]
+        curr=root
+        stack=[]
         
-        while stack:
-            node=stack.pop()
-            
-            if node:
-                output.append(node.val)
-                stack.append(node.right)
-                stack.append(node.left)
+        while curr or stack:
+            if curr:
+                stack.append(curr)
+                output.append(curr.val)
+                curr=curr.left
+            else:
+                curr=stack.pop().right
                 
         return output
             

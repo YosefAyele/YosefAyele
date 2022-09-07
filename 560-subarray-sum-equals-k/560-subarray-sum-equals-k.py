@@ -1,22 +1,22 @@
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
-        
         res=0
-        mapp={}
-        summ=0
         
+        sumMap={}
+        presum=0
         for i in range(len(nums)):
             
-            summ+=nums[i]
+            presum+=nums[i]
+            if presum==k: res+=1
             
-            if summ==k: res+=1  
+            if presum-k in sumMap:
+                res+=sumMap[presum-k]
                 
-            if summ-k in mapp:
-                res+=mapp[summ-k]
+            if presum not in sumMap:
+                sumMap[presum]=1
+            else:
+                sumMap[presum]+=1
+            
     
-            mapp[summ]=mapp.get(summ,0)+1
-            
-        return res
 
-        
-                
+        return res

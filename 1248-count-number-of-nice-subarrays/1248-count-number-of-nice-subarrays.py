@@ -1,25 +1,16 @@
+from collections import deque
+
 class Solution:
     def numberOfSubarrays(self, nums: List[int], k: int) -> int:
+        odds=deque()
         res=0
+        odds.append(-1)
         
-        l=0
-        low=-1
-        for r in range(len(nums)):
+        for i in range(len(nums)):
             
-            k-=nums[r]%2
-            
-            if nums[l]%2==0:
-                l+=1
-            if k<0:
-                low=l
-            while k<0:
-                l+=1
-                k+=nums[l]%2
-            if k==0:
-                res+=l-low
-        
+            if nums[i]%2: odds.append(i)
+            if len(odds)>k+1: odds.popleft()
+            if len(odds)==k+1: res=res+odds[1]-odds[0]
+                
         return res
-            
-            
-            
-            
+        

@@ -8,11 +8,9 @@ class Solution:
         while r<len(prices):
             
             while r<len(prices) and prices[l]-prices[r]==r-l:
+                res+=r-l+1
                 r+=1
-            
-            while l<r:
-                res+=r-l
-                l+=1
+            l=r
                 
         return res
         

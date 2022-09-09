@@ -3,7 +3,7 @@ class Solution:
         
         res=0
         n=len(word)
-        vowels={"a","e","i","o","u"}
+        vowels="aeiou"
         
         for i in range(n):
             if word[i] in vowels:

@@ -7,11 +7,15 @@ class Solution:
                 d[n]=1
             else:
                 d[n]+=1
-                
-        sortedTuples=sorted(d.items(),reverse=True ,key= lambda item: item[1])
         
-        for i in range(k):
-            res.append(sortedTuples[i][0])
-            
+        maxheap=[[-freq,num] for num,freq in d.items()]
+        
+        heapq.heapify(maxheap)
+        
+        
+        for _ in range(k):
+            res.append(heapq.heappop(maxheap)[1])
+        
         return res
+
   

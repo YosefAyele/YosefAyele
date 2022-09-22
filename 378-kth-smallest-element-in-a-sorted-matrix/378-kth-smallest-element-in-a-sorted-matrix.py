@@ -6,10 +6,9 @@ class Solution:
         
         for arr in matrix:
             for num in arr:
-                heapq.heappush(heap,num)
-        
-        for i in range(k-1):
-            heapq.heappop(heap)
-        
-        return heapq.heappop(heap)
+                heapq.heappush(heap,-num)
+                
+                if len(heap)>k:
+                    heapq.heappop(heap)
+        return -heapq.heappop(heap)
     

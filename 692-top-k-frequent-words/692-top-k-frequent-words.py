@@ -3,12 +3,11 @@ class Solution:
     def topKFrequent(self, words: List[str], k: int) -> List[str]:
         count=Counter(words)
         
+        heap=[[-freq,key] for key, freq in count.items()]
+        heapq.heapify(heap)
         
-        sortedWord=sorted(count,key=lambda item: (-count[item],item))
- 
-
         res=[]
         for i in range(k):
-    
-            res.append(sortedWord[i])
+            res.append(heapq.heappop(heap)[1])
+        
         return res

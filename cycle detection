@@ -1,0 +1,9 @@
+def has_cycle(head):
+    sett=set()
+    temp=head
+    while temp:
+        if temp in sett: return 1
+        sett.add(temp)
+        temp=temp.next
+    return 0
+    
